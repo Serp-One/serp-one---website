@@ -18,18 +18,18 @@ export default function Home() {
         <SiteHeader />
         <ZStack>
           <div className="w-full h-full bg-center bg-repeat bg-[url('/pattern.svg')] opacity-[0.2]" />
-          <div className="w-full h-full bg-gradient-to-r from-white from-10%" />
-          <div className="w-full h-full bg-gradient-to-l from-white from-10%" />
+          <div className="w-full h-full bg-gradient-to-r from-white from-5%" />
+          <div className="w-full h-full bg-gradient-to-l from-white from-5%" />
           <PageContaier>
             <div className="flex flex-col items-center py-48">
-              <h1 className="drop-shadow-md text-6xl font-bold text-center">
+              <h1 className="drop-shadow-md text-6xl font-black text-center">
                 <TextGradient>Rank</TextGradient> Higher,{" "}
                 <TextGradient>Grow</TextGradient> Faster
               </h1>
               <p className="text-xl font-medium text-center text-gray-500 mt-4">
                 Number One tool for tracking your Search Engine Rankings
               </p>
-              <Button variant="outline" className="bg-[#FFFFFF] mt-16">
+              <Button variant="outline" className="bg-white mt-16">
                 Get Your Position <Icons.arrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>

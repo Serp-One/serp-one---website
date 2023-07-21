@@ -11,7 +11,7 @@ export function SiteFooter() {
               href="https://bento.me/iarthstar"
               target="_blank"
               rel="noreferrer"
-              className="font-medium underline underline-offset-4"
+              className="font-medium underline underline-offset-4 hover:text-blue-500"
             >
               iarthstar
             </a>
@@ -23,7 +23,7 @@ export function SiteFooter() {
               href="https://twitter.com/shadcn"
               target="_blank"
               rel="noreferrer"
-              className="font-medium underline underline-offset-4"
+              className="font-medium underline underline-offset-4 hover:text-blue-500"
             >
               shadcn
             </a>
@@ -32,7 +32,7 @@ export function SiteFooter() {
               href="https://vercel.com/"
               target="_blank"
               rel="noreferrer"
-              className="font-medium underline underline-offset-4"
+              className="font-medium underline underline-offset-4 hover:text-blue-500"
             >
               Vercel
             </a>

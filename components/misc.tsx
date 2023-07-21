@@ -11,7 +11,7 @@ export const TextGradient: React.FC<any> = ({ className = "", ...rest }) => (
 );
 
 export const PageContaier: React.FC<any> = ({ className = "", ...rest }) => (
-  <div className={cn("m-auto max-w-7xl px-4 md:px-8", className)} {...rest} />
+  <div className={cn("w-full m-auto max-w-7xl px-4 md:px-8", className)} {...rest} />
 );
 
 export const ZStack: React.FC<any> = ({ children, ...rest }) => (
