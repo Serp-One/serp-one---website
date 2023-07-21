@@ -13,11 +13,12 @@ import {
 
 import { SerpInput } from "@/components/serp-input";
 import { Separator } from "@/components/ui/separator";
+import { PageContaier } from "@/components/misc";
 
 export default function Home() {
   return (
-    <>
-      <div className="hidden flex-col md:flex bg-slate-50">
+    <div className="hidden flex flex-col md:flex bg-slate-50">
+        <PageContaier>
         <div className="flex-1 space-y-4 p-8 pt-6">
           <div className="flex items-center justify-between space-y-2">
             <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
@@ -146,29 +147,31 @@ export default function Home() {
           <br />
           {/* <Separator /> */}
           <Card>
-          <CardContent>
-          <Table>
-            {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
-            <TableHeader>
-              <TableRow>
-                <TableHead>Keyword</TableHead>
-                <TableHead>URL</TableHead>
-                <TableHead>Country</TableHead>
-                <TableHead className="text-right">Position</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((i) => (
-                <TableRow key={i}>
-                  <TableCell className="font-medium">Freshdesk Alternatives</TableCell>
-                  <TableCell>https://devrev.ai</TableCell>
-                  <TableCell>UK</TableCell>
-                  <TableCell className="text-right">4</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-          </CardContent>
+            <CardContent>
+              <Table>
+                {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Keyword</TableHead>
+                    <TableHead>URL</TableHead>
+                    <TableHead>Country</TableHead>
+                    <TableHead className="text-right">Position</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((i) => (
+                    <TableRow key={i}>
+                      <TableCell className="font-medium">
+                        Freshdesk Alternatives
+                      </TableCell>
+                      <TableCell>https://devrev.ai</TableCell>
+                      <TableCell>UK</TableCell>
+                      <TableCell className="text-right">4</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </CardContent>
           </Card>
           {/* <Tabs defaultValue="overview" className="space-y-4">
               <TabsList>
@@ -210,7 +213,7 @@ export default function Home() {
               </TabsContent>
             </Tabs> */}
         </div>
+    </PageContaier>
       </div>
-    </>
   );
 }
