@@ -19,14 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    // <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          <AppHeader />
+          {/* <AppHeader /> */}
           {children}
           <SiteFooter />
         </body>
       </html>
-    </ClerkProvider>
+    // </ClerkProvider>
   );
 }

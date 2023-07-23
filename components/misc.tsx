@@ -11,17 +11,31 @@ export const TextGradient: React.FC<any> = ({ className = "", ...rest }) => (
 );
 
 export const PageContaier: React.FC<any> = ({ className = "", ...rest }) => (
-  <div className={cn("w-full m-auto max-w-7xl px-4 md:px-8", className)} {...rest} />
+  <div
+    className={cn("w-full m-auto max-w-7xl px-4 md:px-8", className)}
+    {...rest}
+  />
 );
 
-export const ZStack: React.FC<any> = ({ children, ...rest }) => (
-  <div className="grid grid-cols-1 grid-rows-1">
+export const ZStack: React.FC<any> = ({ children, className, ...rest }) => (
+  <div className={cn("grid grid-cols-1 grid-rows-1", className)} {...rest}>
     {(Array.isArray(children) ? children : [children])?.map(
       (elem: React.ReactNode, i: number) => (
         <div
           key={i}
           className={cn(
-            ["z-[0]", "z-[1]", "z-[2]", "z-[3]", "z-[4]", "z-[5]", "z-[6]", "z-[7]", "z-[8]"][i],
+            [
+              "z-[0]",
+              "z-[1]",
+              "z-[2]",
+              "z-[3]",
+              "z-[4]",
+              "z-[5]",
+              "z-[6]",
+              "z-[7]",
+              "z-[8]",
+              "z-[9]",
+            ][i],
             "col-start-1 row-start-1 col-span-1 row-span-1"
           )}
         >

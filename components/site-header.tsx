@@ -16,12 +16,18 @@ export function SiteHeader() {
           <Logo className="h-8 w-8 mr-4 fill-black" /><TextGradient>SERP</TextGradient>&nbsp;ONE
         </Link>
         {/* <MainNav className="mx-4" /> */}
-        <div className="ml-auto items-center space-x-4 hidden md:flex">
+        <div className="ml-auto items-center space-x-8 hidden md:flex">
           {/* <Search /> */}
           {/* <UserNav /> */}
-          <NavigationMenuDemo />
-          <Link href="/sign-in">
-            <Button variant="ghost">Login</Button>
+          {/* <NavigationMenuDemo /> */}
+          <Link href="/" className="text-gray-500 hover:text-black text-sm font-medium">
+            Blog
+          </Link>
+          <Link href="/" className="text-gray-500 hover:text-black text-sm font-medium">
+            Pricing
+          </Link>
+          <Link href="/sign-in" className="text-gray-500 hover:text-black text-sm font-medium">
+            Login
           </Link>
           <Link href="/sign-up">
             <Button>Sign Up</Button>

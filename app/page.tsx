@@ -10,6 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
           <div className="w-full h-full bg-gradient-to-r from-white from-5%" />
           <div className="w-full h-full bg-gradient-to-l from-white from-5%" />
           <PageContaier>
-            <div className="flex flex-col items-center py-48">
+            <div className="flex flex-col items-center py-24 md:py-48">
               <h1 className="drop-shadow-md text-6xl font-black text-center">
                 <TextGradient>Rank</TextGradient> Higher,{" "}
                 <TextGradient>Grow</TextGradient> Faster
@@ -29,11 +30,18 @@ export default function Home() {
               <p className="text-xl font-medium text-center text-gray-500 mt-4">
                 Number One tool for tracking your Search Engine Rankings
               </p>
-              <Button variant="outline" className="bg-white mt-16">
-                Get Your Position <Icons.arrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Link href="/sign-up">
+                <Button
+                  variant="outline"
+                  className="transition-all shadow-2xl hover:shadow-sm bg-white mt-16 text-xl font-semibold px-8 py-6"
+                >
+                  Get Your Position{" "}
+                  <span className="ml-3 transform rotate-90">
+                    <Icons.arrowUp className=" h-6 w-6 stroke-2 animate-bounce" />{" "}
+                  </span>
+                </Button>
+              </Link>
             </div>
-
           </PageContaier>
         </ZStack>
         <PageContaier className="w-full max-w-4xl flex flex-col gap-y-8">
