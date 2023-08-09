@@ -21,8 +21,9 @@ export default function Home() {
           <div className="w-full h-full bg-center bg-repeat bg-[url('/pattern.svg')] opacity-[0.2]" />
           <div className="w-full h-full bg-gradient-to-r from-white from-5%" />
           <div className="w-full h-full bg-gradient-to-l from-white from-5%" />
+          <div className="w-full h-full bg-gradient-to-t from-white to-50%" />
           <PageContaier>
-            <div className="flex flex-col items-center py-24 md:py-48">
+            <div className="flex flex-col items-center pt-24 pb-48 md:pt-48 md:pb-64">
               <h1 className="drop-shadow-md text-6xl font-black text-center">
                 <TextGradient>Rank</TextGradient> Higher,{" "}
                 <TextGradient>Grow</TextGradient> Faster
