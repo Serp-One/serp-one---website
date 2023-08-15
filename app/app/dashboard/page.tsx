@@ -14,35 +14,22 @@ import {
 import { SerpInput } from "@/components/serp-input";
 import { Separator } from "@/components/ui/separator";
 import { PageContaier } from "@/components/misc";
+import { PositionsProvider } from "@/lib/context/positions";
+import PositionsTable from "@/components/positions-table";
 
 export default function Home() {
   return (
     <div className="hidden flex flex-col md:flex bg-slate-50">
-        <PageContaier>
+      <PageContaier className="min-h-[calc(100vh_-_10rem)]" >
         <div className="flex-1 space-y-4 py-8 pt-6">
           <div className="flex items-center justify-between space-y-2">
             <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
-            <div className="flex items-center space-x-2">
-              {/* <CalendarDateRangePicker /> */}
-              {/* <Button>Download</Button> */}
-            </div>
+            <div className="flex items-center space-x-2"></div>
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Position</CardTitle>
-                {/* <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="h-4 w-4 text-muted-foreground"
-                      >
-                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                      </svg> */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -143,36 +130,12 @@ export default function Home() {
           <br />
           <Separator />
           <br />
-          <SerpInput />
-          <br />
-          {/* <Separator /> */}
-          <Card>
-            <CardContent>
-              <Table>
-                {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Keyword</TableHead>
-                    <TableHead>URL</TableHead>
-                    <TableHead>Country</TableHead>
-                    <TableHead className="text-right">Position</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((i) => (
-                    <TableRow key={i}>
-                      <TableCell className="font-medium">
-                        Freshdesk Alternatives
-                      </TableCell>
-                      <TableCell>https://devrev.ai</TableCell>
-                      <TableCell>UK</TableCell>
-                      <TableCell className="text-right">4</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </CardContent>
-          </Card>
+          <PositionsProvider>
+            <SerpInput />
+            <br />
+            {/* <Separator /> */}
+            <PositionsTable />
+          </PositionsProvider>
           {/* <Tabs defaultValue="overview" className="space-y-4">
               <TabsList>
                 <TabsTrigger value="overview">Audit Log</TabsTrigger>
@@ -213,7 +176,7 @@ export default function Home() {
               </TabsContent>
             </Tabs> */}
         </div>
-    </PageContaier>
-      </div>
+      </PageContaier>
+    </div>
   );
 }

@@ -1,8 +1,5 @@
 import { Brand, Logo } from "@/components/brand";
-import { MainNav } from "@/components/main-nav";
-import { UserNav } from "@/components/user-nav";
 import { Button } from "@/components/ui/button";
-import { NavigationMenuDemo } from "@/components/site-nav";
 import { PageContaier, TextGradient } from "@/components/misc";
 import Link from "next/link";
 
@@ -19,11 +16,10 @@ export function SiteHeader() {
         <div className="ml-auto items-center space-x-8 hidden md:flex">
           {/* <Search /> */}
           {/* <UserNav /> */}
-          {/* <NavigationMenuDemo /> */}
-          <Link href="/" className="text-gray-500 hover:text-black text-sm font-medium">
+          <Link href="/blog" className="text-gray-500 hover:text-black text-sm font-medium">
             Blog
           </Link>
-          <Link href="/" className="text-gray-500 hover:text-black text-sm font-medium">
+          <Link href="/#pricing" className="text-gray-500 hover:text-black text-sm font-medium">
             Pricing
           </Link>
           <Link href="/sign-in" className="text-gray-500 hover:text-black text-sm font-medium">

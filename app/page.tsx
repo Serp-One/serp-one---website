@@ -11,6 +11,21 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Link from "next/link";
+import { SerpInput } from "@/components/serp-input";
+import { Rubik } from "next/font/google";
+import { cn } from "@/lib/utils";
+import { PositionsProvider } from "@/lib/context/positions";
+import PositionsTable from "@/components/positions-table";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { TIERS } from "@/content/misc";
+
+const rubik = Rubik({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -23,30 +38,83 @@ export default function Home() {
           <div className="w-full h-full bg-gradient-to-l from-white from-5%" />
           <div className="w-full h-full bg-gradient-to-t from-white to-50%" />
           <PageContaier>
-            <div className="flex flex-col items-center pt-24 pb-48 md:pt-48 md:pb-64">
-              <h1 className="drop-shadow-md text-6xl font-black text-center">
+            <div className="flex flex-col items-center pt-24 pb-48 md:pt-32 md:pb-24">
+              <h1
+                className={cn(
+                  rubik.className,
+                  "drop-shadow-md text-6xl font-bold text-center"
+                )}
+              >
                 <TextGradient>Rank</TextGradient> Higher,{" "}
                 <TextGradient>Grow</TextGradient> Faster
               </h1>
               <p className="text-xl font-medium text-center text-gray-500 mt-4">
                 Number One tool for tracking your Search Engine Rankings
               </p>
-              <Link href="/sign-up">
+              {/* <Link href="/sign-up">
                 <Button
-                  variant="outline"
-                  className="transition-all shadow-2xl hover:shadow-sm bg-white mt-16 text-xl font-semibold px-8 py-6"
+                  className="transition-all shadow-2xl hover:shadow-sm mt-8 text-base font-semibold px-4 py-4"
                 >
-                  Get Your Position{" "}
+                  Start for free{" "}
                   <span className="ml-3 transform rotate-90">
-                    <Icons.arrowUp className=" h-6 w-6 stroke-2 animate-bounce" />{" "}
+                    <Icons.arrowUp className=" h-4 w-4 stroke-2 animate-bounce" />{" "}
                   </span>
                 </Button>
-              </Link>
+              </Link> */}
+              <div className="w-3/4 mt-12">
+                <PositionsProvider>
+                  <SerpInput />
+                  <br />
+                  <PositionsTable
+                    data={[
+                      {
+                        url: "https://devrev.ai",
+                        keyword: "zendesk alternatives",
+                        position: 6,
+                        country: "US",
+                      },
+                    ]}
+                  />
+                </PositionsProvider>
+              </div>
             </div>
           </PageContaier>
         </ZStack>
-        <PageContaier className="w-full max-w-4xl flex flex-col gap-y-8">
-          <h2 className="text-4xl font-bold text-center mt-16">
+        <PageContaier className="w-full max-w-4xl flex flex-col gap-y-8 pb-24">
+          <h2 id="pricing" className="scroll-mt-24 text-4xl font-bold text-center">Pricing</h2>
+          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+            {TIERS.map((o: any, i: number) => (
+              <Card key={i}>
+                <CardHeader className="pb-3">
+                  <CardTitle>{o.label}</CardTitle>
+                  <CardDescription>{o.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="grid gap-1">
+                  {o.features.map((f: any, i: number) => (
+                    <div
+                      key={i}
+                      className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all hover:bg-accent hover:text-accent-foreground"
+                    >
+                      {/* <BellIcon className="mt-px h-5 w-5" /> */}
+                      <div className="space-y-1">
+                        <p className="text-sm font-medium leading-none">
+                          {f.label}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {f.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                  
+                  <Button className="mt-8" variant={i % 2 == 0 ? "secondary" : undefined}>${o.price}</Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </PageContaier>
+        <PageContaier className="w-full max-w-4xl flex flex-col gap-y-8 pb-24">
+          <h2 className="text-4xl font-bold text-center">
             Understand Findability
           </h2>
           <Accordion type="single" collapsible className="w-full">
@@ -108,9 +176,6 @@ export default function Home() {
             </AccordionItem>
           </Accordion>
         </PageContaier>
-        <br />
-        <br />
-        <br />
         <SiteFooter />
       </div>
     </>

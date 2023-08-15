@@ -12,15 +12,24 @@ import {
 } from "@/components/ui/select";
 import { COUNTRIES } from "@/content/misc";
 import { useState } from "react";
+import useSerpApi from "@/lib/hooks/serp";
+import { POSITIONS_ACTION, usePositionsDispatch } from "@/lib/context/positions";
 
 export function SerpInput() {
+  const { getPosition } = useSerpApi();
+  const dispatch = usePositionsDispatch();
   const [formData, setFormData] = useState({
-    keyword: "",
-    url: "",
-    country: undefined,
+    keyword: "zendesk alternatives",
+    url: "https://devrev.ai",
+    country: "US",
   });
   const onSubmit = () => {
-    console.log({ ...formData });
+    getPosition({ ...formData }).then((res) => {
+      console.log(res);
+      dispatch({ type: POSITIONS_ACTION.ADDED, payload: {...formData, position: res.position } });
+    }).catch((err) => {
+
+    })
   };
 
   const onChange = (key: string) => (value: any) =>
@@ -28,7 +37,7 @@ export function SerpInput() {
   return (
     <Card>
       <CardContent className="pt-6">
-        <div className="flex flex-row gap-x-4 items-end">
+        <div className="flex flex-col md:flex-row gap-4">
           <div className="space-y-2 grow">
             <Label htmlFor="date" className="shrink-0">
               Keyword
@@ -37,6 +46,7 @@ export function SerpInput() {
               className="[&>button]:w-[260px]"
               placeholder="zendesk alternatives"
               value={formData.keyword}
+              autoComplete="on"
               onChange={(e) => onChange("keyword")(e.target.value)}
             />
           </div>
@@ -46,6 +56,7 @@ export function SerpInput() {
               className="[&>button]:w-[260px]"
               placeholder="https://devrev.ai"
               value={formData.url}
+              autoComplete="on"
               onChange={(e) => onChange("url")(e.target.value)}
             />
           </div>
@@ -72,7 +83,7 @@ export function SerpInput() {
               </SelectContent>
             </Select>
           </div>
-          <Button onClick={onSubmit}>Get Position</Button>
+          <Button className="md:self-end grow" onClick={onSubmit}>Look&nbsp;Up</Button>
         </div>
       </CardContent>
     </Card>
